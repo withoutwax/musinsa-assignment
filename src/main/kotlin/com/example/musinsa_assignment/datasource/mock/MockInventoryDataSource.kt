@@ -310,7 +310,7 @@ class MockInventoryDataSource : InventoryDataSource {
 
     override fun deleteInventory(brandName: String): Inventory {
         val currentInventory = inventories.firstOrNull { it.brandName == brandName }
-            ?: throw NoSuchElementException("해당 브랜드를 찾을 수 없습니다.")
+            ?: throw NoSuchElementException("해당 브랜드를 찾을 수 없습니다: $brandName")
 
         inventories.remove(currentInventory)
 

@@ -35,10 +35,10 @@ class InventoryController(private val service: InventoryService) {
     @GetMapping("/min")
     fun getMinimumPriceForEachCategories(): MutableMap<String, MutableMap<String, String>> = service.getMinimumPriceForEachCategories()
 
-    @GetMapping("/cheapest")
+    @GetMapping(value = ["/cheapest"], produces = ["application/json; charset=utf-8"])
     fun getCheapestBrandForAllProduct(): Map<String, Any> = service.getCheapestBrandForAllProduct()
 
-    @GetMapping("/min-max-category/{category}")
+    @GetMapping(value = ["/min-max-category/{category}"], produces = ["application/json; charset=utf-8"])
     fun getMinMaxForEachCategories(@PathVariable category: String): Map<String, Any> = service.getMinMaxForEachCategories(category)
 
     @PostMapping("/add")

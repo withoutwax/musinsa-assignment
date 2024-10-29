@@ -6,8 +6,31 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Musinsa Assignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Musinsa Assignment</h1>
+<body class="h-screen w-screen flex flex-col justify-center items-center gap-10">
+    <h1 class="text-4xl">Musinsa Assignment</h1>
+
+    <div class="flex gap-4 p-4 bg-gray-100">
+        <a href="/api/inventories" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">전체 보기</a>
+        <a href="/api/inventories/min" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 1</a>
+        <a href="/api/inventories/cheapest" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 2</a>
+    </div>
+    <div class="grid grid-cols-4 gap-8 p-4 bg-gray-100">
+        <a href="/api/inventories/min-max-category/top" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 상의</a>
+        <a href="/api/inventories/min-max-category/outer" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 아우터</a>
+        <a href="/api/inventories/min-max-category/trouser" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 바지</a>
+        <a href="/api/inventories/min-max-category/sneaker" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 스니커즈</a>
+        <a href="/api/inventories/min-max-category/bag" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 가방</a>
+        <a href="/api/inventories/min-max-category/hat" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 모자</a>
+        <a href="/api/inventories/min-max-category/sock" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 양말</a>
+        <a href="/api/inventories/min-max-category/accessory" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 3: 악세사리</a>
+    </div>
+
+    <div class="flex gap-4 p-4 bg-gray-100">
+        <a href="/add.html" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 4 상품: 추가하기</a>
+        <a href="/update.html" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 4 상품: 업데이트 하기</a>
+        <a href="/delete.html" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all">구현 4 상품: 삭제하기</a>
+    </div>
 </body>
 </html>

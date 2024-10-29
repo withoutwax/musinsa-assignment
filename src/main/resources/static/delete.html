@@ -9,34 +9,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="w-screen h-screen flex flex-col justify-center items-center">
-    <h1 class="text-3xl font-bold text-gray-800">상품 추가하기</h1>
+    <h1 class="text-3xl font-bold text-red-600">상품 삭제하기</h1>
     <form method="post" class="flex flex-col max-w-80 gap-4 justify-between mt-10">
         <label class="flex gap-2"><span class="flex-1">브랜드:</span> <input type="text" class="border rounded-md w-60" name="brand_name" /></label>
-        <label class="flex gap-2"><span class="flex-1">상의:</span><input type="text" class="border rounded-md w-60" name="top" /></label>
-        <label class="flex gap-2"><span class="flex-1">아우터:</span><input type="text" class="border rounded-md w-60" name="outer" /></label>
-        <label class="flex gap-2"><span class="flex-1">바지:</span><input type="text" class="border rounded-md w-60" name="trouser" /></label>
-        <label class="flex gap-2"><span class="flex-1">스니커즈:</span><input type="text" class="border rounded-md w-60" name="sneaker" /></label>
-        <label class="flex gap-2"><span class="flex-1">가방:</span><input type="text" class="border rounded-md w-60" name="bag" /></label>
-        <label class="flex gap-2"><span class="flex-1">모자:</span><input type="text" class="border rounded-md w-60" name="hat" /></label>
-        <label class="flex gap-2"><span class="flex-1">양말:</span><input type="text" class="border rounded-md w-60" name="sock" /></label>
-        <label class="flex gap-2"><span class="flex-1">악세사리:</span><input type="text" class="border rounded-md w-60" name="accessory" /></label>
         <button type="submit" class="bg-black px-4 py-2 text-white text-center rounded-md hover:bg-gray-800 transition-all mt-4">Submit</button>
     </form>
 
     <script type="text/javascript">
         document.addEventListener('submit', function (event) {
             event.preventDefault();
-
-            fetch('/api/inventories/add', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
+            const formData = new FormData(event.target)
+            const brandName = formData.get("brand_name");
+            console.log(brandName);
+            fetch(`/api/inventories/delete/${brandName}`, {
+                method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8'
                 }
             }).then(function (response) {
                 console.log(response.json());
                 if (response.ok) {
-                    window.alert("성공적으로 추가하였습니다.")
+                    window.alert("성공적으로 삭제하였습니다.")
                     window.location.href = "/"
                 } else {
                     window.alert("오류가 발생하였습니다. 다시 진행해주세요.")

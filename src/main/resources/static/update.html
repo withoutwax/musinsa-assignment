@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="w-screen h-screen flex flex-col justify-center items-center">
-    <h1 class="text-3xl font-bold text-gray-800">상품 추가하기</h1>
+    <h1 class="text-3xl font-bold text-gray-800">상품 업데이트하기</h1>
     <form method="post" class="flex flex-col max-w-80 gap-4 justify-between mt-10">
         <label class="flex gap-2"><span class="flex-1">브랜드:</span> <input type="text" class="border rounded-md w-60" name="brand_name" /></label>
         <label class="flex gap-2"><span class="flex-1">상의:</span><input type="text" class="border rounded-md w-60" name="top" /></label>
@@ -27,8 +27,8 @@
         document.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            fetch('/api/inventories/add', {
-                method: 'POST',
+            fetch('/api/inventories/update', {
+                method: 'PUT',
                 body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8'
@@ -36,7 +36,7 @@
             }).then(function (response) {
                 console.log(response.json());
                 if (response.ok) {
-                    window.alert("성공적으로 추가하였습니다.")
+                    window.alert("성공적으로 업데이트하였습니다.")
                     window.location.href = "/"
                 } else {
                     window.alert("오류가 발생하였습니다. 다시 진행해주세요.")

@@ -105,23 +105,21 @@ class MockInventoryDataSource : InventoryDataSource {
 
     // 구현 2
     override fun getCheapestBrandForAllProduct() : Map<String, Any> {
-        val cheapestBrand = mutableMapOf(
-            "brand_name" to inventories[0].brandName,
-            "total" to (inventories[0].top + inventories[0].outer + inventories[0].trouser + inventories[0].sneaker + inventories[0].bag + inventories[0].hat + inventories[0].sock + inventories[0].accessory).toString()
-        )
+        var brand_name = inventories[0].brandName
+        var total = inventories[0].top + inventories[0].outer + inventories[0].trouser + inventories[0].sneaker + inventories[0].bag + inventories[0].hat + inventories[0].sock + inventories[0].accessory
 
         for ((i, item) in inventories.withIndex()) {
             if (i == 0) continue
 
             val sum = item.top + item.outer + item.trouser + item.sneaker + item.bag + item.hat + item.sock + item.accessory;
 
-            if (sum <= cheapestBrand["total"]?.toInt()!!) {
-                cheapestBrand["brand_name"] = item.brandName;
-                cheapestBrand["total"] = sum.toString()
+            if (sum <= total) {
+                brand_name = item.brandName;
+                total = sum
             }
         }
 
-        val cheapest = inventories.firstOrNull() { it.brandName == cheapestBrand.get("brand_name") }
+        val cheapest = inventories.firstOrNull() { it.brandName == brand_name }
 
         val returnValue = mapOf(
             "최저가" to mapOf(
@@ -160,7 +158,7 @@ class MockInventoryDataSource : InventoryDataSource {
                         "가격" to cheapest.accessory.toString()
                     ),
                 ),
-                "총액" to cheapestBrand["total"]
+                "총액" to total
             )
         )
 

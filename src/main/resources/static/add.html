@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>상품 추가하기</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="/api/inventories/add" method="post">
+        <p>브랜드: <input type="text" name="brand" /></p>
+        <p>상의 <input type="text" name="top" /></p>
+        <p>아우터 <input type="text" name="outer" /></p>
+        <p>바지 <input type="text" name="trouser" /></p>
+        <p>스니커즈 <input type="text" name="sneaker" /></p>
+        <p>가방 <input type="text" name="bag" /></p>
+        <p>모자 <input type="text" name="hat" /></p>
+        <p>양말 <input type="text" name="sock" /></p>
+        <p>악세사리 <input type="text" name="accessory" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

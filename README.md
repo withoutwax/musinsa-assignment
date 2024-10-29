@@ -2,6 +2,9 @@
 
 안녕하세요, 방문해주셔서 감사합니다. 
 
+## Tech Stack
+- Kotlin을 사용, Spring Boot를 사용하였습니다.
+
 ## 빌드, 테스트, 실행방법
 IntelliJ 에서 `MusinsaAssignmentApplicationKt`로 선택 후 빌드하여 사용해 주시기 바랍니다.
 

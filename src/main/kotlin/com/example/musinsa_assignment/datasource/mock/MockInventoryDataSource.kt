@@ -29,6 +29,10 @@ class MockInventoryDataSource : InventoryDataSource {
 
     // 구현 1
     override fun getMinimumPriceForEachCategories(): MutableMap<String, MutableMap<String, String>> {
+        if (inventories.size < 1) {
+            throw NoSuchElementException("등록되어있는 브랜드가 없습니다.")
+        }
+
         val minCategory = mutableMapOf(
             "top" to mutableMapOf(
                 "brand_name" to inventories[0].brandName,
@@ -105,6 +109,10 @@ class MockInventoryDataSource : InventoryDataSource {
 
     // 구현 2
     override fun getCheapestBrandForAllProduct() : Map<String, Any> {
+        if (inventories.size < 1) {
+            throw NoSuchElementException("등록되어있는 브랜드가 없습니다.")
+        }
+
         var brand_name = inventories[0].brandName
         var total = inventories[0].top + inventories[0].outer + inventories[0].trouser + inventories[0].sneaker + inventories[0].bag + inventories[0].hat + inventories[0].sock + inventories[0].accessory
 
@@ -167,6 +175,10 @@ class MockInventoryDataSource : InventoryDataSource {
 
     // 구현 3
     override fun getMinMaxForEachCategories(category: String): Map<String, Any> {
+        if (inventories.size < 1) {
+            throw NoSuchElementException("등록되어있는 브랜드가 없습니다.")
+        }
+
         var min_brand_name = inventories[0].brandName;
         var min_price = Int.MAX_VALUE;
         var max_brand_name = inventories[0].brandName;
